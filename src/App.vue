@@ -1,26 +1,41 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <PostItem v-for="i of this.posts" :key="i.id" :post="i" />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import PostItem from "./components/PostItem.vue"
 
 export default {
-  name: 'App',
+  name: "App",
+  data() {
+    return {
+      posts: [],
+    }
+  },
+  methods: {
+    async getPosts() {
+      const postsFetched = await fetch(
+        "https://jsonplaceholder.typicode.com/posts"
+      )
+      // postsFetched.then((response) => (this.posts = response));
+      postsFetched.json().then((response) => (this.posts = response))
+    },
+  },
+  mounted() {
+    this.getPosts()
+  },
   components: {
-    HelloWorld
-  }
+    PostItem,
+  },
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 </style>
