@@ -9,5 +9,15 @@ export default {
 </script>
 
 <template>
-  <CardItem v-for="i of this.posts" :key="i.id" :post="i" />
+  <div class="list">
+    <CardItem v-for="i of this.posts" :key="i.id" :post="i" />
+  </div>
 </template>
+
+<style>
+.list {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+</style>

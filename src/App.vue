@@ -1,11 +1,6 @@
-<template>
-  <div id="app">
-    <PostList :posts="posts" />
-  </div>
-</template>
-
 <script>
 import PostList from "./components/PostList.vue"
+import TheHeader from "./components/TheHeader.vue"
 
 export default {
   name: "App",
@@ -28,9 +23,17 @@ export default {
   },
   components: {
     PostList,
+    TheHeader,
   },
 }
 </script>
+
+<template>
+  <div id="app">
+    <TheHeader />
+    <PostList :posts="posts" />
+  </div>
+</template>
 
 <style>
 #app {
