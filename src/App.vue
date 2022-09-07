@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <PostItem v-for="i of this.posts" :key="i.id" :post="i" />
+    <PostList :posts="posts" />
   </div>
 </template>
 
 <script>
-import PostItem from "./components/PostItem.vue"
+import PostList from "./components/PostList.vue"
 
 export default {
   name: "App",
@@ -27,7 +27,7 @@ export default {
     this.getPosts()
   },
   components: {
-    PostItem,
+    PostList,
   },
 }
 </script>
