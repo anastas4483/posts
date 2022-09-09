@@ -1,16 +1,16 @@
 <script>
-import CardItem from "./CardItem.vue"
+import PostItem from "./PostItem.vue"
 export default {
   props: ["posts"],
   components: {
-    CardItem,
+    PostItem,
   },
 }
 </script>
 
 <template>
   <div class="list">
-    <CardItem v-for="i of this.posts" :key="i.id" :post="i" />
+    <PostItem v-for="i of this.posts" :key="i.id" :post="i" />
   </div>
 </template>
 

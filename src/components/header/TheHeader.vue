@@ -1,12 +1,12 @@
 <script>
-import TheHeaderMenu from "./TheHeaderMenu.vue"
+import HeaderMenu from "./HeaderMenu.vue"
 export default {
-  components: { TheHeaderMenu },
+  components: { HeaderMenu },
 }
 </script>
 
 <template>
   <div class="header">
-    <TheHeaderMenu />
+    <HeaderMenu />
   </div>
 </template>
