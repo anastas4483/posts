@@ -14,10 +14,11 @@ export default {
   </div>
 </template>
 
-<style>
+<style scoped>
 .list {
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 </style>

@@ -1,20 +1,20 @@
 <script>
+import HeartEmptyIcon from "@/assets/svgs/HeartEmptyIcon.vue"
+import HeartFullIcon from "@/assets/svgs/heartFullIcon.vue"
 export default {
   props: ["onClickLike", "isLike"],
-  computed: {
-    getPath() {
-      return this.isLike
-        ? require("../assets/heart-full.svg")
-        : require("../assets/heart-empty.svg")
-    },
-  },
+  computed: {},
+  components: { HeartEmptyIcon, HeartFullIcon },
 }
 </script>
 
 <template>
   <button class="btnLike" @click="onClickLike">
     Like
-    <span> <img :src="getPath" class="heart" /> </span>
+    <span class="heart">
+      <HeartFullIcon v-if="isLike" :width="15" :height="15" />
+      <HeartEmptyIcon v-else :width="15" :height="15" />
+    </span>
   </button>
 </template>
 

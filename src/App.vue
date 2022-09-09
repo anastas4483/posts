@@ -1,6 +1,6 @@
 <script>
 import PostList from "./components/PostList.vue"
-import TheHeader from "./components/TheHeader.vue"
+import TheHeader from "./components/header/TheHeader.vue"
 
 export default {
   name: "App",
