@@ -7,6 +7,9 @@ export default {
       isShow: false,
     }
   },
+  props: {
+    favoritePosts: Array,
+  },
   methods: {
     onMouseEnter() {
       this.isShow = true
@@ -19,7 +22,7 @@ export default {
 </script>
 <template>
   <div class="wrapper" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave">
-    <span class="openListButton">
+    <span class="openListButton" :class="{ activeButton: isShow }">
       <FavoriteListIcon :width="30" :height="30" />
     </span>
     <div class="list" :class="{ show: isShow }">
@@ -36,11 +39,12 @@ export default {
 .openListButton {
   position: absolute;
   right: 17px;
+  top: 31px;
   cursor: pointer;
   transition: all ease 0.2s;
 }
 
-.openListButton:hover {
+.activeButton {
   padding: 5px;
   border-radius: 11px;
   background-color: #b74a4a;
@@ -53,7 +57,7 @@ export default {
   position: absolute;
   width: 560px;
   height: 0;
-  top: 60px;
+  top: 61px;
   right: 0px;
   background-color: #ffffffba;
   border-radius: 7px;
