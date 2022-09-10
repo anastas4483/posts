@@ -11,9 +11,6 @@ ul {
   list-style-type: none;
   display: flex;
   flex-direction: row;
-  width: 100%;
-  height: 70px;
-  background-color: #30909f;
   margin: 0;
   gap: 15px;
   font-size: 18px;

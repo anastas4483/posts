@@ -10,7 +10,7 @@ export default {
 
 <template>
   <div class="list">
-    <PostItem v-for="post of this.posts" :key="post.id" :post="i" />
+    <PostItem v-for="post of this.posts" :key="post.id" :post="post" />
   </div>
 </template>
 
