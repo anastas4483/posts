@@ -1,7 +1,7 @@
 <script lang="js">
 import { mapActions } from "vuex";
 import TheHeader from "@/components/header/TheHeader.vue";
-import PostsList from "@/components/PostList.vue";
+import PostsList from "@/components/post/PostList.vue";
 
 export default {
   name: "App",
