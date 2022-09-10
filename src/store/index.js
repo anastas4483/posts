@@ -3,16 +3,26 @@ import { createStore } from "vuex"
 export const store = createStore({
   state: {
     favoritePosts: {},
-    posts: [],
+    posts: {},
   },
   mutations: {
-    updateListPosts(state, newPost) {
-      if (state.favoritePosts[newPost.id])
-        delete state.favoritePosts[newPost.id]
-      else state.favoritePosts[newPost.id] = newPost
+    setIsLikeOfPost({ posts }, postId) {
+      posts[postId].isLike = !posts[postId].isLike
+    },
+    setFavoritePosts({ favoritePosts }, newPost) {
+      if (newPost.isLike) favoritePosts[newPost.id] = newPost
+      else delete favoritePosts[newPost.id]
+    },
+    deleteFavoritePost({ favoritePosts, posts }, postId) {
+      delete favoritePosts[postId]
+      posts[postId].isLike = false
     },
     setPosts(state, posts) {
-      state.posts = posts
+      if (posts)
+        state.posts = posts.reduce((obj, post) => {
+          obj[post?.id] = { ...post, isLike: false }
+          return obj
+        }, {})
     },
   },
   actions: {
@@ -20,7 +30,13 @@ export const store = createStore({
       const postsFetched = await fetch(
         "https://jsonplaceholder.typicode.com/posts"
       )
-      postsFetched.json().then((response) => commit("setPosts", response))
+      postsFetched.json().then((response) => {
+        commit("setPosts", response)
+      })
+    },
+    updateFavoritePosts({ commit }, post) {
+      commit("setIsLikeOfPost", post.id)
+      commit("setFavoritePosts", post)
     },
   },
 })

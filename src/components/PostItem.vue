@@ -1,25 +1,20 @@
 <script>
+import { mapActions } from "vuex"
 import ButtonLike from "./ButtonLike.vue"
 export default {
-  data() {
-    return {
-      isLike: false,
-    }
-  },
-  components: {
-    ButtonLike,
-  },
-  methods: {
-    onClickLike() {
-      this.isLike = !this.isLike
-      this.$store.commit("updateListPosts", this.post)
-    },
-  },
-
   props: {
     post: Object,
     i: Number,
   },
+  components: {
+    ButtonLike,
+  },
+  computed: {
+    isLike() {
+      return this.post.isLike
+    },
+  },
+  methods: mapActions(["updateFavoritePosts"]),
 }
 </script>
 
@@ -28,8 +23,10 @@ export default {
     <h1 class="title">{{ post.title }}</h1>
 
     <p class="description">{{ post.body }}</p>
-
-    <ButtonLike :onClickLike="onClickLike" :isLike="isLike" />
+    <ButtonLike
+      :onClickLike="() => this.updateFavoritePosts(post)"
+      :isLike="isLike"
+    />
   </div>
 </template>
 
