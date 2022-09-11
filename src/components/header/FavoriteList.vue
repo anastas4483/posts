@@ -67,6 +67,11 @@ export default {
   border-radius: 7px;
   backdrop-filter: blur(5px);
   box-shadow: 0px 0px 20px 3px #ffffff96;
-  overflow: hidden;
+  overflow-y: auto;
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
 }
 </style>

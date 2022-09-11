@@ -25,7 +25,7 @@ export default {
 <style scoped>
 .favoriteItem {
   width: 100%;
-  height: 100px;
+  height: 120px;
   border-bottom: 1px solid #ccc;
   background: #d6e6eb;
   padding: 10px 15px;
@@ -34,12 +34,15 @@ export default {
   align-items: center;
   justify-content: center;
   padding-right: 30px;
+  padding: 7px;
+  border-radius: 7px;
 }
 .favoriteItem__title {
   color: #2b4a4c;
   text-transform: capitalize;
   text-indent: 15px;
   font-size: 20px;
+  padding: 5px;
 }
 .favoriteItem__description {
   color: #264c4fd4;
