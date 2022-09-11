@@ -30,7 +30,13 @@ export default {
       <FavoriteListIcon :width="30" :height="30" />
     </span>
     <div class="list" :class="{ show: isShow }">
-      <FavoriteItem v-for="post in favoritePosts" :key="post.id" :post="post" />
+      <div class="list__paddingWrapper">
+        <FavoriteItem
+          v-for="post in favoritePosts"
+          :key="post.id"
+          :post="post"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -67,11 +73,13 @@ export default {
   border-radius: 7px;
   backdrop-filter: blur(5px);
   box-shadow: 0px 0px 20px 3px #ffffff96;
-  overflow-y: auto;
+  overflow-y: scroll;
   z-index: 500;
+}
+.list__paddingWrapper {
+  padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 10px;
 }
 </style>
