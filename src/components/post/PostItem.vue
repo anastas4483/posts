@@ -20,9 +20,9 @@ export default {
 
 <template>
   <div class="post">
-    <h1 class="title">{{ post.title }}</h1>
+    <h1 class="post__title">{{ post.title }}</h1>
 
-    <p class="description">{{ post.body }}</p>
+    <p class="post__description">{{ post.body }}</p>
     <ButtonLike
       :onClickLike="() => this.updateFavoritePosts(post)"
       :isLike="isLike"
@@ -30,7 +30,7 @@ export default {
   </div>
 </template>
 
-<style scoped>
+<style>
 .post {
   display: flex;
   border: 2px inset #0eaabd;
@@ -43,8 +43,9 @@ export default {
   justify-content: center;
   align-items: center;
   box-shadow: 4px 3px 0px #00222e42;
+  max-height: 207px;
 }
-.title {
+.post__title {
   color: rgb(2, 87, 133);
   text-align: center;
   font-size: 25px;
@@ -55,17 +56,19 @@ export default {
   overflow: hidden;
   text-overflow: ellipsis;
   min-height: 62px;
+  font-weight: bold;
 }
 
-.title::first-letter {
+.post__title::first-letter {
   text-transform: uppercase;
 }
-.description {
+.post__description {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
   margin: 20px 5px;
+  font-size: 1rem;
 }
 </style>

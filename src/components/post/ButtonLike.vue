@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template>
-  <button class="btnLike" @click="onClickLike">
+  <button class="button btnLike" @click="onClickLike">
     Like
     <span class="heart">
       <HeartFullIcon v-if="isLike" :width="15" :height="15" />
@@ -20,16 +20,7 @@ export default {
 
 <style>
 .btnLike {
-  border-radius: 7px;
-  border: none;
   background-color: #0eaabd;
-  padding: 3px 15px;
-  font-size: 18px;
-  box-shadow: none;
-  color: #fff;
-
-  transition: box-shadow ease 0.3s, color ease 0.3s;
-  cursor: pointer;
 }
 .btnLike:hover {
   box-shadow: 4px 3px 0px #01536e;
@@ -38,7 +29,6 @@ export default {
   background-color: #00acbf5e;
   color: #0a3e4f;
 }
-
 .heart {
   width: 15px;
   height: 15px;
